@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>Tetris</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Tetris</h1>
+
+<div id="menu">
+    <p>Stiskni <strong>mezerník</strong> pro start / pauzu</p>
+    <p>Ovládání:</p>
+    <ul>
+        <li>⬅️ / ➡️ – pohyb</li>
+        <li>⬆️ – otočení</li>
+        <li>⬇️ – rychlý pád</li>
+    </ul>
+    <h3>Leaderboard (Top 10)</h3>
+    <ol id="leaderboard">
+        <!-- Top 10 se načte zde -->
+    </ol>
+</div>
+
+<p>Skóre: <span id="score">0</span></p>
+<p>Čas: <span id="time">0</span> s</p>
+
+<canvas id="tetris" width="240" height="400"></canvas>
+
+<h3>Další tvar</h3>
+<canvas id="next" width="80" height="80"></canvas>
+
+<script src="script.js"></script>
+</body>
+</html>
