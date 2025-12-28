@@ -109,7 +109,8 @@ function resetPlayer(){
   drawNext();
 }
 
-// Odstranění linií
+// Odstranění linií a level
+let levelThreshold = 600;
 function sweep(){
   let lines = 0;
   for(let y = ROWS-1; y >= 0; y--){
@@ -123,9 +124,10 @@ function sweep(){
   if(lines > 0){
     score += 100 * lines * lines;
     updateHighscore();
-    if(score % 600 < 100){ 
+    if(score >= levelThreshold){
       level++;
       dropSpeed *= 0.9;
+      levelThreshold += 600; // příští práh
     }
     flash();
     updateUI();
@@ -210,17 +212,16 @@ function drawNext(){
     const canvasNext = nextCanvases[i];
     const ctxNext = canvasNext.getContext("2d");
 
-    // nastavíme canvas na velikost HTML elementu
+    // canvas vyplní celý HTML prvek
     canvasNext.width = canvasNext.clientWidth;
     canvasNext.height = canvasNext.clientHeight;
 
     const canvasWidth = canvasNext.width;
     const canvasHeight = canvasNext.height;
 
-    // velikost čtverečku
     const size = Math.floor(Math.min(canvasWidth / piece[0].length, canvasHeight / piece.length));
 
-    // offset pro přesné vycentrování
+    // offset pro vycentrování
     const offsetX = Math.floor((canvasWidth - piece[0].length*size)/2/size);
     const offsetY = Math.floor((canvasHeight - piece.length*size)/2/size);
 
@@ -229,12 +230,12 @@ function drawNext(){
   });
 }
 
-
 // Start hry
 document.getElementById("startBtn").onclick = ()=>{
   if(gameRunning) return;
   board.forEach(r => r.fill(0));
   score = 0; level = 1; dropSpeed = 750;
+  levelThreshold = 600;
   gameOver = false;
   gameRunning = true;
   update.lastTime = 0; drop.counter = 0;
