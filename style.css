@@ -1,0 +1,82 @@
+/* Základní styl stránky */
+body {
+    margin: 0;
+    background: linear-gradient(to bottom, #111, #333); /* jemný tmavý gradient pozadí */
+    color: #fff;
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Canvas pro hlavní hru */
+canvas {
+    border: 4px solid #fff;
+    border-radius: 10px;
+    background: #000;
+    margin-top: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.7);
+}
+
+/* Canvas pro další tvar */
+#next {
+    margin-top: 10px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+/* Menu a text */
+#menu {
+    margin-top: 10px;
+    font-size: 18px;
+    padding: 8px 15px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* Leaderboard */
+#leaderboard {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+    width: 150px;
+    text-align: left;
+}
+
+/* Mobilní ovládací tlačítka */
+#mobile-controls {
+    position: fixed;
+    bottom: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+/* Styl tlačítek */
+#mobile-controls button {
+    font-size: 22px;
+    padding: 12px 18px;
+    border-radius: 12px;
+    background: linear-gradient(145deg,#555,#222); /* moderní gradient */
+    color: #fff;
+    border: none;
+    box-shadow: 0 4px #000;
+    transition: all 0.1s ease;
+}
+
+/* Efekt při stisku tlačítka */
+#mobile-controls button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px #000;
+}
+
+/* Responsive úpravy pro malé obrazovky */
+@media (max-width: 480px) {
+    canvas { width: 90%; height: auto; }
+    #mobile-controls button { font-size: 20px; padding: 10px 15px; }
+    #leaderboard { width: 120px; font-size: 14px; }
+    #menu { font-size: 16px; padding: 6px 10px; }
+}

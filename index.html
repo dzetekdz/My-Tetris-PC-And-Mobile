@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Tetris Mobilní Verze</title>
+<style>
+body {
+    margin: 0;
+    background: linear-gradient(to bottom, #111, #333);
+    color: #fff;
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+canvas {
+    border: 4px solid #fff;
+    border-radius: 10px;
+    background: #000;
+    margin-top: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.7);
+}
+
+#next {
+    margin-top: 10px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+#menu {
+    margin-top: 10px;
+    font-size: 18px;
+    padding: 8px 15px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 8px;
+    text-align: center;
+}
+
+#leaderboard {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+    width: 150px;
+    text-align: left;
+}
+
+#mobile-controls {
+    position: fixed;
+    bottom: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+#mobile-controls button {
+    font-size: 22px;
+    padding: 12px 18px;
+    border-radius: 12px;
+    background: linear-gradient(145deg,#555,#222);
+    color: #fff;
+    border: none;
+    box-shadow: 0 4px #000;
+    transition: all 0.1s ease;
+}
+
+#mobile-controls button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px #000;
+}
+</style>
+</head>
+<body>
+
+<h1>Tetris</h1>
+<canvas id="tetris" width="240" height="400"></canvas>
+<canvas id="next" width="100" height="100"></canvas>
+<div id="menu">Stiskni mezerník nebo ⏯ start</div>
+<ul id="leaderboard"></ul>
+
+<div id="mobile-controls">
+    <button id="left">⬅</button>
+    <button id="right">➡</button>
+    <button id="down">⬇</button>
+    <button id="rotate">⭯</button>
+    <button id="start">⏯</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
